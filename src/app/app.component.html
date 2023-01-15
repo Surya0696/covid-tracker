@@ -1,0 +1,78 @@
+<div class="container-fluid bg-dark p-1 text-white">
+    <h5 class="text-right">Date: {{mydate | date: 'd/MMM/YYYY , hh:mm:ss'}}</h5> 
+    <h3 class="text-center">World's COVID<span>-19</span> Tracker</h3>
+  </div>
+
+<div class="container-fluid bg-custom"></div>
+
+<div class="container p-3">
+  <div class="row">
+    <div class="group col-md-2">
+      <h4 class="text-right mt-1">Country Name:</h4>
+    </div>
+
+    <div class="group col-md-6">
+      <select (change)="getCountry($event.target.value)" class="form-control">
+      <option *ngFor="let c of countries"> 
+        {{c.Country}}
+      </option>
+      </select></div>
+
+    <div class="group col-md-2"><button (click)="getDetails() " class="btn btn-primary">Submit</button></div>
+ 
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center text-white bg-primary ">
+        <h3>  {{country}} Confirmed Cases</h3>
+        <h5>{{confirmed||0}}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center text-white  bg-success">
+        <h3>  {{country}} Recovered Cases</h3>
+        <h5>{{recovered||0}}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center text-white bg-danger">
+        <h3>  {{country}} Death Cases</h3>
+        <h5>{{death||0}}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card">
+        <div class="card-body text-center text-white bg-warning ">
+        <h3>  {{country}} Active Cases</h3>
+        <h5>{{active||0}}</h5>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="container-fluid bg-dark p-3 text-center text-white text-right mt-5">
+<p class="foart"> &copy; Copyright & Reserved Design & Developer By Surya P R</p>
+</div>
+
+<div *ngIf="loader" class="loader"></div>
+
+<!-- <h1>Confirmed: {{confirmed||0}}</h1>
+<h1>Recovered: {{recovered||0}}</h1>
+<h1>Death: {{death||0}}</h1>
+<h1>Active: {{active||0}}</h1> -->
